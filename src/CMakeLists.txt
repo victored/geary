@@ -277,6 +277,10 @@ client/views/conversation-viewer.vala
 client/views/conversation-web-view.vala
 )
 
+set(GRANITE_CLIENT_SRC
+client/granite/geary-granite-application.vala
+)
+
 set(CONSOLE_SRC
 console/main.vala
 )
@@ -360,6 +364,30 @@ if (LIBUNITY_FOUND)
     )
 else ()
     message(STATUS "Unity launcher support: OFF")
+endif ()
+
+if (GRANITE_SUPPORT)
+    message(STATUS "Granite support: ON")
+    set(EXTRA_CLIENT_PKG_CONFIG
+        ${EXTRA_CLIENT_PKG_CONFIG}
+        granite
+    )
+    
+    set(EXTRA_CLIENT_PACKAGES
+        ${EXTRA_CLIENT_PACKAGES}
+        granite
+    )
+    
+    set(EXTRA_VALA_OPTIONS
+        ${EXTRA_VALA_OPTIONS}
+        -D GRANITE_SUPPORT
+    )
+
+    set(CLIENT_SRC
+        ${CLIENT_SRC}
+        ${GRANITE_CLIENT_SRC})
+else ()
+    message(STATUS "Granite support: OFF")
 endif ()
 
 set(TARGET_GLIB 2.32)
