@@ -8,5 +8,9 @@ public class GearyGraniteApplication : GearyApplication {
     public GearyGraniteApplication() {
         // ...
     }
+
+    protected override GearyController create_controller() {
+        return new GearyGraniteController();
+    }
 }
 

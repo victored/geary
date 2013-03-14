@@ -134,7 +134,7 @@ along with Geary; if not, write to the Free Software Foundation, Inc.,
         Geary.Engine.instance.account_unavailable.connect(on_account_unavailable);
         
         config = new Configuration();
-        controller = new GearyController();
+        controller = create_controller();
         
         // Start Geary.
         try {
@@ -148,7 +148,11 @@ along with Geary; if not, write to the Free Software Foundation, Inc.,
 
         handle_args(args);
     }
-    
+
+    protected virtual GearyController create_controller() {
+        return new GearyController();
+    }
+
     // NOTE: This assert()'s if the Gtk.Action is not present in the default action group
     public Gtk.Action get_action(string name) {
         Gtk.Action? action = actions.get_action(name);

@@ -788,7 +788,7 @@ public class GearyController {
         }
     }
 
-    private void on_about() {
+    protected virtual void on_about() {
         Gtk.show_about_dialog(main_window,
             "program-name", GearyApplication.NAME,
             "comments", GearyApplication.DESCRIPTION,
