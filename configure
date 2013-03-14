@@ -26,6 +26,9 @@ configure_help() {
     printf "\t--enable-ref-tracking\n"
     printf "\t\t\t\tEnable reference tracking which is dumped to stdout when the program exits.\n"
     
+    printf "\t--enable-granite-support\n"
+    printf "\t\t\t\tEnable support for Granite widgets.\n"
+    
     printf "\t--disable-schemas-compile\n"
     printf "\t\t\t\tDisable compiling the GSettings schema.\n"
     
@@ -71,6 +74,10 @@ do
         
         --enable-ref-tracking)
                             CMDLINE="${CMDLINE} -DREF_TRACKING=ON"
+                            ;;
+        
+        --enable-granite-support)
+                            CMDLINE="${CMDLINE} -DGRANITE_SUPPORT=ON"
                             ;;
         
         --disable-schemas-compile)

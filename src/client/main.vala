@@ -5,7 +5,13 @@
  */
 
 int main(string[] args) {
-    GearyApplication app = new GearyApplication();
+    GearyApplication app;
+    
+#if GRANITE_SUPPORT
+    app = new GearyGraniteApplication();
+#else
+    app = new GearyApplication();
+#endif
     
     int ec = app.run(args);
     
