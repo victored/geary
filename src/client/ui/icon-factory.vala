@@ -20,7 +20,8 @@ public class IconFactory {
         
         private set { _instance = value; }
     }
-    
+
+    public const string APPLICATION_ICON_NAME = "geary";
     public const int APPLICATION_ICON_SIZE = 128;
     public Gdk.Pixbuf application_icon { get; private set; }
     
@@ -47,7 +48,7 @@ public class IconFactory {
         append_icons_search_path("16x16");
         
         // Load icons here.
-        application_icon = load("geary", APPLICATION_ICON_SIZE);
+        application_icon = load(APPLICATION_ICON_NAME, APPLICATION_ICON_SIZE);
         unread = load("mail-unread", UNREAD_ICON_SIZE);
         starred = load("starred", STAR_ICON_SIZE);
         unstarred = load("non-starred-grey", STAR_ICON_SIZE);

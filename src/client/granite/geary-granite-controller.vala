@@ -9,14 +9,19 @@ public class GearyGraniteController : GearyController {
         Granite.Widgets.show_about_dialog(main_window, 
                                           "program_name", GearyApplication.NAME,
                                           "version", GearyApplication.VERSION,
-                                          "logo_icon_name", GearyApplication.NAME,
+                                          "logo_icon_name", IconFactory.APPLICATION_ICON_NAME,
                                           "comments", _(GearyApplication.DESCRIPTION),
                                           "copyright", GearyApplication.COPYRIGHT,
                                           "website", GearyApplication.WEBSITE,
                                           "website_label", _(GearyApplication.WEBSITE_LABEL),
                                           "authors", GearyApplication.AUTHORS,
                                           "translator_credits", _("translator-credits"),
-                                          "license", GearyApplication.LICENSE);
+                                          "license", GearyApplication.LICENSE,
+                                          
+                                          // These are granite-specific.
+                                          "help", null,
+                                          "translate", null,
+                                          "bug", null);
     }
 
     protected override MainWindow create_main_window() {
