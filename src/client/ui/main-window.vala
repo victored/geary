@@ -18,14 +18,16 @@ public class MainWindow : Gtk.Window {
     public int window_height { get; set; }
     public bool window_maximized { get; set; }
 
-    private Gtk.Paned folder_paned = new Gtk.Paned(Gtk.Orientation.HORIZONTAL);
-    private Gtk.Paned conversations_paned = new Gtk.Paned(Gtk.Orientation.HORIZONTAL);
+    protected Gtk.Paned folder_paned;
+    protected Gtk.Paned conversations_paned;
     
     private Gtk.ScrolledWindow conversation_list_scrolled;
     private Gtk.Spinner spinner = new Gtk.Spinner();
     
     public MainWindow() {
         title = GearyApplication.NAME;
+
+        create_panes();
         
         conversation_list_view = new ConversationListView(conversation_list_store);
         
@@ -59,7 +61,12 @@ public class MainWindow : Gtk.Window {
         
         base.show_all();
     }
-    
+
+    protected virtual void create_panes() {
+        folder_paned = new Gtk.Paned(Gtk.Orientation.HORIZONTAL);
+        conversations_paned = new Gtk.Paned(Gtk.Orientation.HORIZONTAL);        
+    }
+
     private bool on_delete_event() {
         GearyApplication.instance.exit();
         

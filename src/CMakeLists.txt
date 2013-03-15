@@ -280,6 +280,7 @@ client/views/conversation-web-view.vala
 set(GRANITE_CLIENT_SRC
 client/granite/geary-granite-application.vala
 client/granite/geary-granite-controller.vala
+client/granite/granite-main-window.vala
 )
 
 set(CONSOLE_SRC

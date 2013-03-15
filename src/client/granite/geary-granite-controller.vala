@@ -18,4 +18,8 @@ public class GearyGraniteController : GearyController {
                                           "translator_credits", _("translator-credits"),
                                           "license", GearyApplication.LICENSE);
     }
+
+    protected override MainWindow create_main_window() {
+        return new GraniteMainWindow();
+    }
 }

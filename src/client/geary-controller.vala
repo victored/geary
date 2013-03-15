@@ -95,7 +95,7 @@ public class GearyController {
         GearyApplication.instance.exiting.connect(on_application_exiting);
         
         // Create the main window (must be done after creating actions.)
-        main_window = new MainWindow();
+        main_window = create_main_window();
         main_window.notify["has-toplevel-focus"].connect(on_has_toplevel_focus);
         
         enable_message_buttons(false);
@@ -142,6 +142,10 @@ public class GearyController {
     
     ~GearyController() {
         assert(current_account == null);
+    }
+
+    protected virtual MainWindow create_main_window() {
+        return new MainWindow();
     }
 
     private void add_accelerator(string accelerator, string action) {
